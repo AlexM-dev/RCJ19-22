@@ -26,7 +26,5 @@ void loop(){
     context->updateHardware();
     context->selectStrategy();
     context->updareStrategy();
-    //Serial.println(millis()-timep);
-
-    
+    //Serial.println(millis()-timep);    
 } 

@@ -101,7 +101,7 @@ void readSensors() {
   dt[0] = (int)angle[F2_SIZE/2]/2;
   dt[1] = dist[F2_SIZE/2] * 10;
   Serial.write(dt, sizeof(dt));
-  Serial.println(dt[0] * 2);
+  //Serial.println(dt[0] * 2);
 }
 
 void readChanel(int channel, int f) {

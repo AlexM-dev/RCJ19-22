@@ -6,7 +6,7 @@
 #define S3 8
 #define SIG A1
 
-#define WHITE_VAL 60
+#define WHITE_VAL 70
 
 #define FASTADC 1 //Включение или выключение режима ускорения АЦП
 

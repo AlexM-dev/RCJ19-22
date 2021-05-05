@@ -9,9 +9,9 @@ def dot(x, y, color=(255, 0, 0), sz = 5):
     for i in range(sz * sz):
         img.set_pixel(int(x) + (i % sz) - 1, int(y) + int(i / sz) - 1, color)
 thresholds = [(48, 83, -7, 17, 11, 127),
-              (31, 41, -8, 23, -56, -31)]
+              (13, 25, -11, 27, -48, -25)]
 cX = 165
-cY = 90
+cY = 110
 yX = 0
 yY = 0
 bX = 0

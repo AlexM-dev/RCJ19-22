@@ -95,12 +95,12 @@ public:
         }
       }
 
-      if(getCamSensor()->getAnotherCamAngle() < 45 && getAnotherGoalDist() < 40 && (getBallSensor()->isCatched() || abs(getBallSensor()->getAngle()) < 30 || getBallSensor()->getDistanse() > 60))
-      {
-        DOn = 0;
-      }
+      // if(abs(getCamSensor()->getAnotherCamAngle()) < 30 && getAnotherGoalDist() < 33 && (getBallSensor()->isCatched() || abs(getBallSensor()->getAngle()) < 30 || getBallSensor()->getDistanse() > 60))
+      // {
+      //   DOn = 0;
+      // }
 
-       if(millis() - prev < 500)
+       if(millis() - prev < 1500)
        {
           if(DOn == 1)
             dribler.writeMicroseconds(MID_PPM - 90);
@@ -162,7 +162,7 @@ public:
           return 1.65;
         return 1.45;
       }
-      return 1.4;
+      return 1;
     }
 
     float getCamAngleMultipiller(){

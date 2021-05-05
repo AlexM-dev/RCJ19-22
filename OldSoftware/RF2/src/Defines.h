@@ -1,7 +1,7 @@
 #ifndef DEFINES_H
 #define DEFINES_H
 
-#define BASE_SPEED 70 //скорость чтоб отдельно ее везде не менять
+#define BASE_SPEED 50 //скорость чтоб отдельно ее везде не менять
 
 //Control Elements
 #define BUTTON_PIN1 A10

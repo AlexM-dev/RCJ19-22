@@ -22,9 +22,17 @@ void BallSensor::update(){
 
 bool BallSensor::isBallCatched(){
   bool val = false;
+  static  unsigned long long prev = millis();
   //Serial.println(analogRead(BALL_CATCHED_SENSOR_PIN));
-  if(analogRead(BALL_CATCHED_SENSOR_PIN) > BALL_CATCHED_SENSOR_VALUE)
+  if(analogRead(BALL_CATCHED_SENSOR_PIN) > BALL_CATCHED_SENSOR_VALUE) {
     val = true;
+    prev = millis();
+  }
+  else {
+    if(millis() - prev < 1000){
+      val = true;
+    }
+  }
   return val;
 }
 
