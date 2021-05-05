@@ -1,0 +1,12 @@
+main.c:76:6:turnLow	8	static
+main.c:80:9:readMux	16	static
+main.c:117:8:toRadians	24	static
+main.c:121:7:getAngle	32	static
+main.c:128:7:getX	32	static
+main.c:135:7:getY	32	static
+main.c:142:7:getDist	24	static
+main.c:148:5:main	168	static
+main.c:205:6:SystemClock_Config	88	static
+main.c:240:13:MX_SPI1_Init	8	static
+main.c:279:13:MX_GPIO_Init	48	static
+main.c:320:6:Error_Handler	8	static,ignoring_inline_asm
