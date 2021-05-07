@@ -28,7 +28,7 @@ public:
     Context(Servo * drib){
         command = ' ';
         hardware.getDribbler()->setMotor(drib);
-        curStrategy = new GoalkeaperStr2(&hardware);
+        curStrategy = new DebugStr(&hardware);
     }
 
     void updateHardware(){

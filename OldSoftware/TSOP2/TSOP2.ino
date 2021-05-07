@@ -86,6 +86,7 @@ void readSensors() {
       sortArray(notFiltred[i], F_SIZE);
       data[i] = notFiltred[i][F_SIZE-1];
     }
+    data[14] = 0; 
     dist[f2] = getDist(getX(data), getY(data));
     angle[f2] = getAngle(getX(data), getY(data));
   }
@@ -101,7 +102,7 @@ void readSensors() {
   dt[0] = (int)angle[F2_SIZE/2]/2;
   dt[1] = dist[F2_SIZE/2] * 10;
   Serial.write(dt, sizeof(dt));
-  //Serial.println(dt[0] * 2);
+  //Serial.println( (((dt[0]*2) + 315)%360) + 180);
 }
 
 void readChanel(int channel, int f) {
@@ -119,11 +120,11 @@ void readChanel(int channel, int f) {
 double toRadians(double degs) {
   return degs * 3.1415926553 / 180;
 }
-
 float getAngle(float x, float y) {
   float angle = atan2(x, y) * 57.2928;
   if (angle < 0)
     angle = 360 + angle;
+
   return angle;
 }
 

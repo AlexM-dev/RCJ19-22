@@ -99,7 +99,7 @@ public:
       // {
       //   DOn = 0;
       // }
-
+         DOn = 0;
        if(millis() - prev < 1500)
        {
           if(DOn == 1)
@@ -157,12 +157,12 @@ public:
         if(abs(getBallSensor()->getAngle()) < 45)
           return 2;
         if(abs(getBallSensor()->getAngle()) < 90)
-          return 1.85;
+          return 2;
         if(abs(getBallSensor()->getAngle()) < 135)
           return 1.65;
         return 1.45;
       }
-      return 1;
+      return 1.4;
     }
 
     float getCamAngleMultipiller(){

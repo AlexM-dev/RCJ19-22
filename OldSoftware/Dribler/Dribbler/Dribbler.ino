@@ -3,7 +3,7 @@
 Servo motor;
 
 void setup(){
-   motor.attach(6);
+   motor.attach(12);
 
    for(int i = 800; i <= 1400; i++){
      motor.write(i);

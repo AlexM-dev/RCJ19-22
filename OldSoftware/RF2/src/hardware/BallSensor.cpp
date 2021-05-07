@@ -29,7 +29,7 @@ bool BallSensor::isBallCatched(){
     prev = millis();
   }
   else {
-    if(millis() - prev < 1000){
+    if(millis() - prev < 300){
       val = true;
     }
   }

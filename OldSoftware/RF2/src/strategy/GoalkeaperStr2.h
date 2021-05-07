@@ -33,35 +33,36 @@ public:
       // if(getGoalDist() < 23 && getGoalDist() > 15)
       //   getMovement()->setSpeed(0);
 
-      // if(getBallSensor()->isCanSee()){
-      //   getMovement()->setDirection(getBallSensor()->getAngle() > 0? 
-      //     90 : -90
-      //   );
-      //   getMovement()->setSpeed(GK_SPEED);
-      // } else getMovement()->setSpeed(0);
+      if(getBallSensor()->isCanSee()){
+        getMovement()->setDirection(getBallSensor()->getAngle() > 0? 
+          90 : -90
+        );
+        getMovement()->setSpeed(GK_SPEED);
+      } else getMovement()->setSpeed(0);
 
 
-      // if(getCamSensor()->getCamAngle() < 120){
-      //   getMovement()->setSpeed(GK_SPEED);
-      //   getMovement()->setDirection(getCamSensor()->getCamAngle() > 0? 
-      //     90 : -90
-      //   );
-      // }
+      if(getCamSensor()->getCamAngle() < 135){
+        getMovement()->setSpeed(GK_SPEED);
+        getMovement()->setDirection(getCamSensor()->getCamAngle() > 0? 
+          90 : -90
+        );
+      }
 
-      // if(abs(getBallSensor()->getAngle()) < 25){
-      //   getMovement()->setSpeed(0);
-      // }
-      Serial.println(getBallSensor()->getAngle());
+      if(abs(getBallSensor()->getAngle()) < 25){
+        getMovement()->setSpeed(0);
+      }
 
-      // if(getGoalDist() > 35){
-      //   getMovement()->setSpeed(GK_SPEED);
-      //   getMovement()->setDirection(180);
-      // }
+      Log::info("Angle", String(getBallSensor()->isCanSee()));
 
-      // if(getGoalDist() < 10){
-      //   getMovement()->setSpeed(GK_SPEED);
-      //   getMovement()->setDirection(0);
-      // }
+      if(getGoalDist() > 40){
+        getMovement()->setSpeed(GK_SPEED);
+        getMovement()->setDirection(180);
+      }
+
+      if(getGoalDist() < 15){
+        getMovement()->setSpeed(GK_SPEED);
+        getMovement()->setDirection(0);
+      }
       
 
       // if(abs(getCamSensor()->getCamAngle()) < 120){
