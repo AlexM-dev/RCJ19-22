@@ -19,29 +19,20 @@ public:
     }
 
     void doStrategy() override {
-      //getMovement()->setSpeed(GK_SPEED);
-      //
 
-
-      //  Log::info("R", String(analogRead(A2)));getCamSensor()->getCamAngle()
       if(getBallSensor()->isCanSee())
       Log::info("Y", String(getBallSensor()->getAngle()));
             Log::info("Y", "Cant see");
 
-      static int prev = 0, state = 0;
+      static int prev = 0, state = 0, kickflag = 0, kickprev = 0;
 
-
-      
-
-      // if(getGoalDist() < 23 && getGoalDist() > 15)
-      //   getMovement()->setSpeed(0);
+      getMovement()->setRotation(0);
 
       if(getBallSensor()->isCanSee()){
         getMovement()->setDirection(getBallSensor()->getAngle() > 0? 
           90 : -90
         );
         getMovement()->setSpeed(GK_SPEED);
-        ///getMovement()->setSpeed(map(abs(getBallSensor()->getAngle()), 15, 120, 20, 100));
       } 
       else getMovement()->setSpeed(0);
 
@@ -70,14 +61,27 @@ public:
         getMovement()->setDirection(0);
       }
          
-
       if(millis() - prev > 3000 && state == 1) {
-        getMovement()->setDirection(getBallSensor()->getAngle());
-        getMovement()->setSpeed(GK_SPEED);
-        if(getGoalDist() >= 50 || millis() - prev > 7000)
+        if(getGoalDist() <= 50) {
+          getMovement()->setDirection(getBallSensor()->getAngle());
+          getMovement()->setSpeed(GK_SPEED);
+        }
+        else {
+          if(kickflag == 0) { 
+            kickflag = 1;
+            kickprev = millis();
+          }
+          if(millis() - kickprev < 500) {
+            getMovement()->setRotation(getCamSensor()->getAnotherCamAngle());
+          }
+          else {
+            getMovement()->setRotation(0);
+            state = 0;
+          }
+        }
+        if(getGoalDist() >= 60 || millis() - prev > 7000)
           state = 0;
       }
-      
     } 
       
 
