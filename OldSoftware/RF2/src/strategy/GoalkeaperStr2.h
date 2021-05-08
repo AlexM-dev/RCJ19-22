@@ -37,7 +37,8 @@ public:
         getMovement()->setDirection(getBallSensor()->getAngle() > 0? 
           90 : -90
         );
-        getMovement()->setSpeed(GK_SPEED);
+        //getMovement()->setSpeed(map(abs(getBallSensor()->getAngle()), 0, 180, GK_SPEED, GK_MIN_SPEED));
+        getMovement()->setSpeed(map(abs(getBallSensor()->getAngle()), 15, 120, 20, 100));
       } 
       else getMovement()->setSpeed(0);
 
@@ -59,7 +60,7 @@ public:
       //   }
       // }
 
-      if(abs(getBallSensor()->getAngle()) < 25){
+      if(abs(getBallSensor()->getAngle()) < 15){
         getMovement()->setSpeed(0);
       }
 
