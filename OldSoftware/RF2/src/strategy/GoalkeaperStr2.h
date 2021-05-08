@@ -23,8 +23,11 @@ public:
       //
 
 
-      //  Log::info("R", String(analogRead(A2)));
-      //  Log::info("L", String(analogRead(A6)));
+      //  Log::info("R", String(analogRead(A2)));getCamSensor()->getCamAngle()
+      if(getBallSensor()->isCanSee())
+      Log::info("Y", String(getBallSensor()->getAngle()));
+            Log::info("Y", "Cant see");
+
       static int prev = 0, state = 0;
 
 
@@ -37,65 +40,43 @@ public:
         getMovement()->setDirection(getBallSensor()->getAngle() > 0? 
           90 : -90
         );
-        //getMovement()->setSpeed(map(abs(getBallSensor()->getAngle()), 0, 180, GK_SPEED, GK_MIN_SPEED));
-        getMovement()->setSpeed(map(abs(getBallSensor()->getAngle()), 15, 120, 20, 100));
+        getMovement()->setSpeed(GK_SPEED);
+        ///getMovement()->setSpeed(map(abs(getBallSensor()->getAngle()), 15, 120, 20, 100));
       } 
       else getMovement()->setSpeed(0);
 
-
-      // if(getCamSensor()->getCamAngle() < 135){
-      //   if(getBallSensor()->getAngle() < 0)
-      //     getMovement()->setSpeed(0);
-      //   else {
-      //     getMovement()->setSpeed(GK_SPEED);
-      //     getMovement()->setDirection(90);
-      //   }
-      // }
-      // else if(getCamSensor()->getCamAngle() > -135) {
-      //   if(getBallSensor()->getAngle() > 0)
-      //     getMovement()->setSpeed(0);
-      //   else {
-      //     getMovement()->setSpeed(GK_SPEED);
-      //     getMovement()->setDirection(-90);
-      //   }
-      // }
-
-      if(abs(getBallSensor()->getAngle()) < 15){
+      if(abs(getBallSensor()->getAngle()) < 15 && getBallSensor()->isCanSee()){
         getMovement()->setSpeed(0);
+        if(state == 0){
+          prev = millis();
+          state = 1;
+        }
+      } else {
+        state = 0;
       }
 
-      // if(getGoalDist() > 35){
-      //   getMovement()->setSpeed(GK_SPEED);
-      //   getMovement()->setDirection(180);
-      // }
+      if(abs(getCamSensor()->getCamAngle()) < 150 ){
+        getMovement()->setSpeed(GK_MIN_SPEED);
+        getMovement()->setDirection(getCamSensor()->getCamAngle() > 0? 90 : -90);
+      }      
 
-      // if(getGoalDist() < 20){
-      //   getMovement()->setSpeed(GK_SPEED);
-      //   getMovement()->setDirection(0);
-      // }
-      
+      if(getGoalDist() > 40){
+        getMovement()->setSpeed(GK_MIN_SPEED);
+        getMovement()->setDirection(180);
+      }
 
-      // if(abs(getCamSensor()->getCamAngle()) < 120){
-      //   getMovement()->setDirection(getCamSensor()->getCamAngle() > 0? 90 : -90);
-      //   getMovement()->setSpeed(GK_SPEED);
-      // }
+      if(getGoalDist() < 30){
+        getMovement()->setSpeed(GK_MIN_SPEED);
+        getMovement()->setDirection(0);
+      }
+         
 
-      // if(getGoalDist() >= 25){
-      //   getMovement()->setDirection(180);
-      //   getMovement()->setSpeed(GK_SPEED);
-      // }  
-
-      // if(getGoalDist() < 13){
-      //   getMovement()->setDirection(0);
-      //   getMovement()->setSpeed(GK_SPEED);
-      // }      
-
-      // if(millis() - prev > 2500 && state == 1) {
-      //   getMovement()->setDirection(getBallSensor()->getAngle() * 1.3);
-      //   getMovement()->setSpeed(GK_SPEED);
-      //   if(getGoalDist() >= 40)
-      //     state = 0;
-      // }
+      if(millis() - prev > 3000 && state == 1) {
+        getMovement()->setDirection(getBallSensor()->getAngle());
+        getMovement()->setSpeed(GK_SPEED);
+        if(getGoalDist() >= 50 || millis() - prev > 7000)
+          state = 0;
+      }
       
     } 
       

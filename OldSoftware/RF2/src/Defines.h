@@ -44,7 +44,7 @@
 #define GOAL_DISTANSE 45
 
 //Goalkeaper Settings
-#define GK_SPEED 50
+#define GK_SPEED 100
 #define GK_MIN_SPEED 40
 #define GK_MIN_BALL_DIST 75
 #define GK_BALL_ANG 15
