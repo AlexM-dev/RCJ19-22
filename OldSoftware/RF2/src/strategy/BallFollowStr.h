@@ -99,7 +99,6 @@ public:
       // {
       //   DOn = 0;
       // }
-         DOn = 0;
        if(millis() - prev < 1500)
        {
           if(DOn == 1)

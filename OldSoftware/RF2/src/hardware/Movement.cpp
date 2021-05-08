@@ -81,7 +81,7 @@ void Movement::updateRotationK() {
 
     if(abs(I) > 0)
       I = 0;
-    rotationK = (err * ROT_K) + ((err - oldErr) * ROT_D) + I * ROT_I;
+    rotationK = (err * ROT_K) + ((err - oldErr) * ROT_D); //+ I * ROT_I;
     if(abs(err) < 5)
       rotationK = 0;
 
@@ -158,7 +158,7 @@ void Movement::moveM(int s, int a) {
   a = a + (targetAngle - rAngle);
 
   if((cSpeed + rotationK) > 200){
-    cSpeed = cSpeed - ((cSpeed + rotationK) - 200);
+    cSpeed -= ((cSpeed + rotationK) - 200);
   }
 
   //Get speed of motors

@@ -38,31 +38,40 @@ public:
           90 : -90
         );
         getMovement()->setSpeed(GK_SPEED);
-      } else getMovement()->setSpeed(0);
+      } 
+      else getMovement()->setSpeed(0);
 
 
-      if(getCamSensor()->getCamAngle() < 135){
-        getMovement()->setSpeed(GK_SPEED);
-        getMovement()->setDirection(getCamSensor()->getCamAngle() > 0? 
-          90 : -90
-        );
-      }
+      // if(getCamSensor()->getCamAngle() < 135){
+      //   if(getBallSensor()->getAngle() < 0)
+      //     getMovement()->setSpeed(0);
+      //   else {
+      //     getMovement()->setSpeed(GK_SPEED);
+      //     getMovement()->setDirection(90);
+      //   }
+      // }
+      // else if(getCamSensor()->getCamAngle() > -135) {
+      //   if(getBallSensor()->getAngle() > 0)
+      //     getMovement()->setSpeed(0);
+      //   else {
+      //     getMovement()->setSpeed(GK_SPEED);
+      //     getMovement()->setDirection(-90);
+      //   }
+      // }
 
       if(abs(getBallSensor()->getAngle()) < 25){
         getMovement()->setSpeed(0);
       }
 
-      Log::info("Angle", String(getBallSensor()->isCanSee()));
+      // if(getGoalDist() > 35){
+      //   getMovement()->setSpeed(GK_SPEED);
+      //   getMovement()->setDirection(180);
+      // }
 
-      if(getGoalDist() > 40){
-        getMovement()->setSpeed(GK_SPEED);
-        getMovement()->setDirection(180);
-      }
-
-      if(getGoalDist() < 15){
-        getMovement()->setSpeed(GK_SPEED);
-        getMovement()->setDirection(0);
-      }
+      // if(getGoalDist() < 20){
+      //   getMovement()->setSpeed(GK_SPEED);
+      //   getMovement()->setDirection(0);
+      // }
       
 
       // if(abs(getCamSensor()->getCamAngle()) < 120){
