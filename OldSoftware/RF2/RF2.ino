@@ -23,6 +23,7 @@ void setup(){
 
 void loop(){   
     //long int timep = millis();
+    //
     context->updateHardware();
     context->selectStrategy();
     context->updareStrategy();

@@ -2,7 +2,7 @@
 
 CamSensor::CamSensor(){  ///  Blue   - 0
   Serial2.begin(115200); ///  Yellow - 1
-  goal = 1;
+  goal = 0;
 }
 
 void CamSensor::update(){

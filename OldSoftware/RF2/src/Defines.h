@@ -1,7 +1,7 @@
 #ifndef DEFINES_H
 #define DEFINES_H
 
-#define BASE_SPEED 100 //скорость чтоб отдельно ее везде не менять
+#define BASE_SPEED 70 //скорость чтоб отдельно ее везде не менять
 
 //Control Elements
 #define BUTTON_PIN1 A10
@@ -21,8 +21,8 @@
 #define DRIBBLER_PIN 12
 
 //Speed Settings
-#define ROT_K 0.4
-#define ROT_D 0.55
+#define ROT_K 0.5
+#define ROT_D 0.75
 #define ROT_I 0.00035
 #define I_MAX 3000
 #define MAX_ROTATION_K 200
@@ -45,10 +45,12 @@
 
 //Goalkeaper Settings
 #define GK_SPEED 100
-#define GK_MIN_SPEED 40
+#define GK_MIN_SPEED 50
 #define GK_MIN_BALL_DIST 75
 #define GK_BALL_ANG 15
 #define GO_ON_BALL_TIME 1000
+#define koefP 0.01
+#define koefD 0.03
 
 //Button Settings
 #define LONG_CLICK_TIME 1000
