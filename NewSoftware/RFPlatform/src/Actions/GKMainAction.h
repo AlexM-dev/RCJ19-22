@@ -7,11 +7,13 @@ class GKMainAction : public
 {BaseAction
 private:	
     BallSensor *ball;
+    Cam *cam;
     int speed;
 public:
 	BallFollowAction(ActionsController* cont) : BaseAction(cont)
 	{
         ball = getDevice<BallSensor>(BALL_DEVICE_ID);
+        cam = getDevice<Cam>(CAM_DEVICE_ID);
         createSimpleTimer(0, 2000);
         createSimpleTimer(1, 1000);
 	};
@@ -39,9 +41,9 @@ public:
             }
 
             if(cam->getAngle() < 130 && cam->getAngle() > 0)
-                addVector(90); //srtVector тут должен быть
+                setVector(90);
             else if(cam->getAngle() > -130 && cam->getAngle() < 0)
-                addVector(90); //и тут 
+                setVector(90);
 
             if(cam->getDistanse() > 25)
                 addVector(180);

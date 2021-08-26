@@ -11,18 +11,12 @@ public:
 	{
         ball = getDevice<BallSensor>(BALL_DEVICE_ID);
         createSimpleTimer(0, 2000);
+		startTimer(0);
 	};
 
 	void onUpdate() override 
 	{
-        
-        if(ball->isCatched())
-        {
-            addVector(0);
-            stopTimer(0);
-        }
-        else
-            startTimer(0);
+    	addVector(ball->getAngle() * 1.2);
 	}
 
 	void onStart() override 

@@ -10,6 +10,14 @@ void BaseAction::finish()
 	controller->popAction();
 }
 
+void BaseAction::setVector(float angle, int speed)
+{
+	controller->mVector->setTo(Vec2(angle, speed));
+}
+void BaseAction::setVector(float angle)
+{
+	controller->mVector->setTo(Vec2(angle, BASE_SPEED));
+}
 void BaseAction::addVector(float angle, int speed)
 {
 	controller->mVector->add(Vec2(angle, speed));

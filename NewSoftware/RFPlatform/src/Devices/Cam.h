@@ -45,7 +45,7 @@ public:
             yellowDistance = data[1];
             blueAngle = data[2];
             blueDistance = data[3];
-            Log::info(yellowAngle);
+            //Log::info(yellowAngle);
         }
     }
 

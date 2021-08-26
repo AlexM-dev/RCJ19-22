@@ -40,6 +40,8 @@ public:
         else 
             catched = false;
 
+        Log::info(analogRead(BALL_CATCHED_SENSOR_PIN));
+
         byte dt[2];
         if(tsopSerial->available() > sizeof(dt))
             if(tsopSerial->read() == 0xff)

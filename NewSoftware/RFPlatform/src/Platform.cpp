@@ -86,11 +86,11 @@ void Platform::updateRotation()
     rotationI += err * (micros() - rotationTime) / 1000;
 
     // This shit is always true.... WTF????? 
-    // if(abs(rotationI) > 0)   
-    //   rotationI = 0;
+    if(abs(rotationI) > I_MAX)   
+      rotationI = 0;
 
     // Compute rotationK and limit it
-    rotationK = (err * ROT_K) + ((err - rotationOldError) * ROT_D); //+ rotationI * ROT_I; // OK, but....
+    rotationK = (err * ROT_K) + ((err - rotationOldError) * ROT_D) + rotationI * ROT_I; // OK, but....
     if(abs(err) < 5) // This part stops super slow rotation
       rotationK = 0;
     rotationK = Utils::mirroredValueLimit(rotationK, MIN_ROTATION_K, MAX_ROTATION_K);

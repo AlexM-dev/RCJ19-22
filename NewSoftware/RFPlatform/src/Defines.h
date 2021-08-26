@@ -17,7 +17,7 @@
 // Ball sensor settings
 #define BALL_CATCHED_SENSOR_PIN A5
 #define BALL_CATCHED_LED_PIN 50
-#define BALL_CATCHED_SENSOR_VALUE 850
+#define BALL_CATCHED_SENSOR_VALUE 750
 #define TSOP_RX 62
 #define TSOP_TX 46
 
@@ -35,18 +35,18 @@
 
 // Platform Settings
 //   Speed Settings 
-#define BASE_SPEED 100
+#define BASE_SPEED 150
 #define MAX_SPEED 250
 #define MAX_VELOCITY 10
 #define MIN_VELOCITY 1
-#define MAX_ROTATION_K 200
+#define MAX_ROTATION_K 100
 #define MIN_ROTATION_K 15
 #define QUICK_ROTATION_SPEED 50   
 
 //    Rotation Settings
-#define ROT_K 0.1  // #define ROT_K 0.52
-#define ROT_D 5.3    // #define ROT_D 5.3
-#define ROT_I 0.00035
+#define ROT_K 0.52  // #define ROT_K 0.52
+#define ROT_D 13.4    // #define ROT_D 5.3
+#define ROT_I 0.0007
 #define I_MAX 3000
 
 //    Motors pins

@@ -19,6 +19,8 @@ public:
 	void finish();
 	void addVector(float angle, int speed);
 	void addVector(float angle);
+	void setVector(float angle, int speed);
+	void setVector(float angle);
 
 	// Action timers
 	TimerState getTimerState(int timerID);
