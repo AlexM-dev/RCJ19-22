@@ -89,11 +89,7 @@ public:
         else
         {
           getMovement()->setDirection(getCamSensor()->getCamAngle());
-<<<<<<< HEAD
           getMovement()->setSpeed(map(getGoalDist(), 25, 80, 25, BASE_SPEED)); 
-=======
-          getMovement()->setSpeed(map(getGoalDist(), 30, 75, 30, BASE_SPEED)); 
->>>>>>> 08be8824e52701fdc43f6371c9f8bb0408de8cb0
 
           if(getGoalDist() <= 35)
               getMovement()->setSpeed(0);   

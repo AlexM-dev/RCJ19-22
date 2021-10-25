@@ -1,11 +1,7 @@
 #ifndef DEFINES_H
 #define DEFINES_H
 
-<<<<<<< HEAD
 #define BASE_SPEED 80 //скорость чтоб отдельно ее везде не менять
-=======
-#define BASE_SPEED 150 //скорость чтоб отдельно ее везде не менять
->>>>>>> 08be8824e52701fdc43f6371c9f8bb0408de8cb0
 
 //Control Elements
 #define BUTTON_PIN1 A10
@@ -39,11 +35,7 @@
 //Ball Sensor Settings
 #define BALL_CATCHED_SENSOR_PIN A5
 #define BALL_CATCHED_LED_PIN 50
-<<<<<<< HEAD
 #define BALL_CATCHED_SENSOR_VALUE 850
-=======
-#define BALL_CATCHED_SENSOR_VALUE 1000
->>>>>>> 08be8824e52701fdc43f6371c9f8bb0408de8cb0
 
 //SONARS PINS
 #define LEFT_SONAR_PIN A6
@@ -53,11 +45,7 @@
 
 //Goalkeaper Settings
 #define GK_SPEED 100
-<<<<<<< HEAD
 #define GK_MIN_SPEED 60
-=======
-#define GK_MIN_SPEED 70
->>>>>>> 08be8824e52701fdc43f6371c9f8bb0408de8cb0
 #define GK_MIN_BALL_DIST 75
 #define GK_BALL_ANG 15
 #define GO_ON_BALL_TIME 1000
